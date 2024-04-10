@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Download</title>
+    <style>
+        /* Same CSS as before */
+    </style>
+</head>
+<body>
+    <button id="downloadButton">Download Files</button>
+
+    <script>
+        const downloadButton = document.getElementById('downloadButton');
+
+        // List of files to download (edit these)
+        const filesToDownload = [
+            { name: "README.md", url: "C:/Users/Administrator/Documents/GitHub/pa_bot/README.md" },
+            { name: "bot.ipynb", url: "C:/Users/Administrator/Documents/GitHub/pa_bot/bot.ipynb" },
+
+            ];
+
+        downloadButton.addEventListener('click', () => {
+            filesToDownload.forEach(file => {
+                const link = document.createElement('a');
+                link.href = file.url;
+                link.download = file.name;
+                // No need to append to body for downloads
+                link.click();
+                link.remove(); 
+            });
+        });
+    </script>
+</body>
+</html>
